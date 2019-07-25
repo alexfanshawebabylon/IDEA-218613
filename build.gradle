@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testImplementation 'org.assertj:assertj-core:3.12.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+}
+
+test {
+    useJUnitPlatform()
+    outputs.upToDateWhen { false }
+
+    filter {
+        //only run package one tests
+        includeTestsMatching "com.one.*"
+    }
+
+}
